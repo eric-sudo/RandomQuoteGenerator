@@ -91,7 +91,16 @@ function getRandomQuote() {
 function printQuote() {
   var newQuote = getRandomQuote();
   var html = "";
-
+  html += '<p class="quote"> ' + newQuote['quote'] + ' </p>';
+  html += '<p class="source"> ' + newQuote['source'];
+  if (newQuote['citation']) {
+    html += '<span class="citation"> '+ newQuote['citation'] + ' </span>';
+  }
+  if (newQuote['year']) {
+    html += '<span class="year"> ' + newQuote['year'] + ' </span>';
+  }
+  html += '</p>';
+  document.getElementById('quote-box').innerHTML = html;
 }
 
 
