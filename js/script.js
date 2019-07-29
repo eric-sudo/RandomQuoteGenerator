@@ -20,7 +20,8 @@ var quotes = [
   {
     quote: "Talk is cheap. Show me the code.",
     source: "Linus Torvalds",
-    tag: "humor"
+    tag: "humor",
+    year: "2000"
   },
   {
     quote: "Programs must be written for people to read, and only incidentally for machines to execute.",
@@ -30,13 +31,15 @@ var quotes = [
   },
   {
     quote: "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.",
-    source: "John Woods"
+    source: "John Woods",
+    year: "1992"
   },
   {
     quote: "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.",
     source: "Rick Cook",
     citation: "The Wizardry Compiled",
-    tag: "humor"
+    tag: "humor",
+    year: "1989"
   },
   {
     quote: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
@@ -44,7 +47,8 @@ var quotes = [
   },
   {
     quote: "That's the thing about people who think they hate computers. What they really hate is lousy programmers.",
-    source: "Larry Niven"
+    source: "Larry Niven",
+    year: "1982"
   },
   {
     quote: "Give a man a program, frustrate him for a day. Teach a man to program, frustrate him for a lifetime."
@@ -61,10 +65,14 @@ var quotes = [
 /***
   Create the `getRandomQuote` function to:
    - Create a variable to store a random number
-   - Cse the random number to `return` a random quote object from the `quotes` array.
+   - Use the random number to `return` a random quote object from the `quotes` array.
 ***/
 
-
+function getRandomQuote() {
+  var randomNumber = Math.floor(Math.random() * quotes.length)
+  var newQuote = quotes[randomNumber];
+  return newQuote;
+}
 
 
 /***
@@ -72,7 +80,7 @@ var quotes = [
    - Call the `getRandomQuote` function and assign it to a variable.
    - Create a variable for the HTML string and set it equal to an empty string.
    - Use the HTML template in the instructions or the markup in the index.html file, AND
-     the random quote vairable to build your HTML string.
+     the random quote variable to build your HTML string.
    - Add the quote and source section to the HTML string.
    - Use an if statement to check for the citation property before adding it to the HTML string.
    - Use an if statement to check for the year property before adding it to the HTML string.
@@ -80,7 +88,11 @@ var quotes = [
    - Set the `innerHTML` of the `quote-box` div to the HTML string.
 ***/
 
+function printQuote() {
+  var newQuote = getRandomQuote();
+  var html = "";
 
+}
 
 
 /***
