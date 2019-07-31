@@ -88,7 +88,7 @@ function getRandomColor() {
 
 function theInterval() {
   clearInterval(quoteInterval);
-  quoteInterval = setInterval(printQuote, 5000);
+  quoteInterval = setInterval(printQuote, 20000);
 }
 
 /***
