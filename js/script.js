@@ -2,8 +2,11 @@
 Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 By: Eric Ehlert
+Which grade I am going for: Exceeds Expectations
 ******************************************/
 
+
+var quoteInterval;
 
 //The array of quote objects with different properties
 
@@ -36,7 +39,8 @@ var quotes = [
   },
   {
     quote: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
-    source: "Martin Fowler"
+    source: "Martin Fowler",
+    tag: "wise saying"
   },
   {
     quote: "That's the thing about people who think they hate computers. What they really hate is lousy programmers.",
@@ -55,6 +59,8 @@ var quotes = [
   }
 ];
 
+// Starting the interval
+theInterval();
 
 /***
   The getRandomQuote() function gets a random quote of the "quotes" array
@@ -62,9 +68,27 @@ var quotes = [
 ***/
 
 function getRandomQuote() {
-  var randomNumber = Math.floor(Math.random() * quotes.length)
+  var randomNumber = Math.floor(Math.random() * quotes.length);
   var newQuote = quotes[randomNumber];
   return newQuote;
+}
+
+
+//The getRandomColor() function gets (obviously) a random color and returns it.
+
+function getRandomColor() {
+  var r = Math.floor(Math.random() * 160);
+  var g = Math.floor(Math.random() * 160);
+  var b = Math.floor(Math.random() * 160);
+  var randomColor = "rgb(" + r + ", " + g + ", " + b + ")"
+  return randomColor;
+}
+
+// Clearing the recent interval and starting a new one.
+
+function theInterval() {
+  clearInterval(quoteInterval);
+  quoteInterval = setInterval(printQuote, 5000);
 }
 
 /***
@@ -82,18 +106,26 @@ function printQuote() {
   html += '<p class="quote"> ' + newQuote['quote'] + ' </p>';
   html += '<p class="source"> ' + newQuote['source'];
   if (newQuote['citation']) {
-    html += '<span class="citation"> '+ newQuote['citation'] + ' </span>';
+    html += '<span class="citation"> '+ newQuote['citation'] + '</span>';
   }
   if (newQuote['year']) {
-    html += '<span class="year"> ' + newQuote['year'] + ' </span>';
+    html += '<span class="year"> ' + newQuote['year'] + '</span>';
   }
   if (newQuote['tag']) {
-    html += '<span class="tag"> ' + newQuote['tag'] + ' </span>';
+    html += '<span class="tag"> ' + newQuote['tag'] + '</span>';
   }
   html += '</p>';
   // Setting the "quote-box" element to the "html" string
   document.getElementById('quote-box').innerHTML = html;
+  // Setting a random background color
+  document.body.style.background = getRandomColor();
 }
 
-// Adding the event listener so the quotes change by clicking the button
+/***
+  Adding the event listener so the quotes change by clicking the button and
+  the timer starts. This makes sure the quotes don't change through the timer
+  even though the user is actively changing the quotes
+***/
+
+document.getElementById('loadQuote').addEventListener("click", theInterval, false);
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);

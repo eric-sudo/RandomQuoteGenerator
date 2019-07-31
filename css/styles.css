@@ -66,18 +66,20 @@ body {
   font-style: normal;
 }
 
-/* .citation:after {
-  content: ", ";
-  font-style: normal;
-} */
+/* Added the necessary css code to style the other quote properties */
 
-.year:not(:empty):before {
+.year:before {
   content: ", ";
   font-style: normal;
 }
 
 .tag {
   color: #ccffda;
+}
+
+.tag:before {
+  content: ", ";
+  font-style: normal;
 }
 
 #loadQuote {
