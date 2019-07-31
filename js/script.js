@@ -80,7 +80,7 @@ function getRandomColor() {
   var r = Math.floor(Math.random() * 160);
   var g = Math.floor(Math.random() * 160);
   var b = Math.floor(Math.random() * 160);
-  var randomColor = "rgb(" + r + ", " + g + ", " + b + ")"
+  var randomColor = "rgb(" + r + ", " + g + ", " + b + ")";
   return randomColor;
 }
 
